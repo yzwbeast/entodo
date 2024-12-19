@@ -112,9 +112,10 @@
 - 制作闪卡。
 - 直到全部记住为止。
 
-[English README available here](README.md)
 **周末：**
 - 寻找一首新的歌曲。
 - 寻找一本新的书籍。
 - 寻找一部新的电视剧。
 - 休息一下。
+
+[English README available here](README.md)

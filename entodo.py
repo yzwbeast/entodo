@@ -139,6 +139,7 @@ def view_progress():
             status2 = tasks[task2] if task2 else ""  # 第二列状态
             column_width = 30-len(task1)
             # 输出每行的任务和状态
+            column_width = max(0, 30 - len(task1))  # Ensure column_width is not negative
             print(f"{status1} {task1:<{column_width}}  {status2} {task2:<30}")
 
         # 打印完成百分比
@@ -238,6 +239,7 @@ def show_today_task():
         column_width = 30 - len(task1)
         # 打印任务及其状态
         if task1:
+            column_width = max(30 - len(task1), 0)  # Ensure that column_width is non-negative
             print(f"{status1} {task1:<{column_width}}", end="  ")
         else:
             print(" " * (column_width + 2), end="  ")

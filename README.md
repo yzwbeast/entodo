@@ -21,13 +21,38 @@ This project is a **study progress tracker** implemented in Python. It is design
    ```bash
    cd entodo
    ```
-3. Install dependencies:
+<details>
+<summary>Why Use Virtual Environments</summary>
+
+> When you encounter the "**externally-managed-environment**" error, it might be because the Python version installed via APT by the operating system enforces strict management of the system environment, preventing users from modifying system-level Python packages with pip.<br />
+> **Recommended Solution**:<br />Using a virtual environment is the cleanest and safest method. It does not affect the system Python environment and allows you to freely manage dependencies.
+</details>
+
+3. Create a virtual environment<br />Run in the project directory:
+   ```bash
+   python3 -m venv entodo
+   ```
+   - `entodo` is the name of the virtual environment and can be replaced with any name.
+4. Activate the virtual environment:
+   ```bash
+   source entodo/bin/activate
+   ```
+5. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-4. Run the script:
+6. Run the script:
    ```bash
    python entodo.py
+   ```
+7. Exit the virtual environment: After use, you can exit the environment:
+   ```bash
+   deactivate
+   ```
+8. Delete the virtual environment
+Just delete the my_env folder:
+   ```bash
+   rm -rf entodo
    ```
 
 ## Usage

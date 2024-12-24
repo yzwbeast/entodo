@@ -9,6 +9,7 @@ from matplotlib import font_manager as fm
 # 如果是 Windows 系统，通常使用 SimHei 或 Microsoft YaHei
 # 如果是 Mac，可以使用 STHeiti 或 PingFang
 font_path = "/System/Library/Fonts/STHeiti Light.ttc"  # macOS 示例
+# font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"  # Ubuntu 示例
 # font_path = "C:/Windows/Fonts/simhei.ttf"  # Windows 示例
 zh_font = fm.FontProperties(fname=font_path)
 

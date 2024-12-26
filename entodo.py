@@ -157,29 +157,40 @@ def plot_progress():
 
     dates = []
     completion_rates = []
+    colors = []
     for date, info in data["progress"].items():
         dates.append(date)
-        completion_rates.append(info["完成百分比"])
+        completion_rate = info["完成百分比"]
+        completion_rates.append(completion_rate)
+
+        # 根据完成率设置颜色（苹果风格）
+        if completion_rate < 60:
+            colors.append('#FF3B30')  # 浅珊瑚红
+        elif 60 <= completion_rate < 80:
+            colors.append('#FF9500')  # 明亮琥珀色
+        else:
+            colors.append('#34C759')  # 浅薄荷绿
 
     # 绘制柱状图
     plt.figure(figsize=(10, 6))
-    plt.bar(dates, completion_rates, color='skyblue')
+    bars = plt.bar(dates, completion_rates, color=colors)
+
+    # 显示每个柱子顶部的完成率
+    for bar, rate in zip(bars, completion_rates):
+        plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 1, 
+                 f'{rate:.0f}%', ha='center', fontsize=10, color='black')
 
     # 设置标题、X轴和Y轴标签（使用中文字体）
-    plt.title("每日学习任务完成率", fontproperties=zh_font, fontsize=16)
+    plt.title("每日英语学习任务完成率", fontproperties=zh_font, fontsize=16)
     plt.xlabel("日期", fontproperties=zh_font, fontsize=12)
     plt.ylabel("完成率 (%)", fontproperties=zh_font, fontsize=12)
 
     # 设置Y轴范围
-    plt.ylim(0, 100)
+    plt.ylim(0, 120)
 
     # 旋转X轴日期标签，避免重叠
     plt.xticks(rotation=45, fontproperties=zh_font)
-    # 优化图表标签
-    # plt.xticks(range(0, len(dates), max(1, len(dates) // 10)), rotation=45, fontproperties=zh_font)
-
-    # 显示图表
-    plt.tight_layout()  # 防止标签被遮挡
+    plt.tight_layout()
     plt.show()
 
 # 获取当天任务列表
